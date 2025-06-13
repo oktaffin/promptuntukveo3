@@ -1,18 +1,19 @@
 /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* CSS Variables untuk tema */
+/* CSS Variables untuk TEMA GELAP */
 :root {
     --primary-color: #0d6efd;
-    --primary-hover: #0b5ed7;
-    --secondary-color: #6c757d;
+    --primary-hover: #3385fd;
+    --secondary-color: #495057;
     --secondary-hover: #5c636a;
-    --background-color: #f8f9fa;
-    --card-color: #ffffff;
-    --text-color: #212529;
-    --label-color: #495057;
-    --border-color: #dee2e6;
-    --shadow-color: rgba(0, 0, 0, 0.075);
+    --background-color: #1a1a1a; /* Latar utama sangat gelap */
+    --card-color: #242424; /* Warna kartu/kontainer sedikit lebih terang */
+    --text-color: #e9ecef; /* Warna teks utama terang */
+    --label-color: #adb5bd; /* Warna label lebih redup */
+    --border-color: #495057; /* Warna border yang kontras */
+    --input-bg-color: #333333; /* Latar untuk input field */
+    --shadow-color: rgba(0, 0, 0, 0.2);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -32,6 +33,7 @@ body {
     padding: 25px 40px;
     border-radius: 12px;
     box-shadow: 0 4px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 h1 {
@@ -43,7 +45,7 @@ h1 {
 
 p {
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--label-color);
     margin-bottom: 30px;
 }
 
@@ -90,6 +92,8 @@ input[type="text"], textarea, select {
     font-family: var(--font-family);
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: var(--input-bg-color); /* Latar input gelap */
+    color: var(--text-color); /* Warna teks input terang */
 }
 
 input[type="text"]:focus, textarea:focus, select:focus {
@@ -137,34 +141,36 @@ h2 {
 .textarea-wrapper { position: relative; }
 
 #output_indonesia, #output_inggris {
-    width: 100%;
-    box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #f8f9fa;
 }
 
-#output_inggris { background-color: #e9ecef; }
+#output_inggris { 
+    background-color: #1a1a1a; /* Sedikit lebih gelap agar terlihat readonly */
+}
 
 .copy-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #fff;
-    border: 1px solid var(--border-color);
+    background: #333;
+    border: 1px solid var(--label-color);
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    color: var(--secondary-color);
+    color: var(--label-color);
     transition: all 0.2s ease;
 }
-.copy-btn:hover { background-color: #f1f1f1; }
+.copy-btn:hover { 
+    background-color: var(--secondary-color);
+    color: white;
+}
 .copy-btn.copied {
     background-color: #198754;
     color: white;
     border-color: #198754;
 }
 
-/* Media Query untuk Responsivitas */
+/* Media Query untuk Responsivitas (tetap sama) */
 @media (max-width: 992px) {
     .form-grid, .output-grid {
         grid-template-columns: 1fr;
