@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Veo Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Veo 3 Prompt Generator</h1>
+        <p>Isi kolom di bawah untuk menghasilkan prompt yang terstruktur untuk Veo 3.</p>
+
+        <form id="prompt-form">
+            <div class="form-grid">
+                <div class="form-column">
+                    <fieldset>
+                        <legend><i class="fa-solid fa-user-astronaut"></i> Karakter</legend>
+                        <label for="deskripsi_karakter">Deskripsi Karakter Inti</label>
+                        <textarea id="deskripsi_karakter" rows="6" placeholder="Contoh: Seorang vlogger wanita muda asal Minang berusia 27 tahun. Perawakan/Bentuk Tubuh: tubuh mungil, tinggi 158cm..."></textarea>
+                        
+                        <label for="suara_karakter">Detail Suara Karakter</label>
+                        <textarea id="suara_karakter" rows="4" placeholder="Contoh: Dia berbicara dengan suara wanita muda yang hangat dan penuh semangat. Nada: mezzo-soprano..."></textarea>
+                        
+                        <label for="aksi_karakter">Aksi Karakter</label>
+                        <input type="text" id="aksi_karakter" placeholder="Contoh: berjalan di sekitar terminal bus malam...">
+                        
+                        <label for="ekspresi_karakter">Ekspresi Karakter</label>
+                        <input type="text" id="ekspresi_karakter" placeholder="Contoh: Karakter menunjukkan ekspresi kagum dan antusias...">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend><i class="fa-solid fa-comments"></i> Dialog & Suara</legend>
+                        <label for="suara_lingkungan">Suara Lingkungan/Ambience</label>
+                        <input type="text" id="suara_lingkungan" placeholder="Contoh: SOUND: suara mesin bus menyala, pengumuman terminal...">
+
+                        <label for="dialog_karakter">Dialog Karakter (Bahasa Indonesia)</label>
+                        <textarea id="dialog_karakter" rows="3" placeholder="Contoh: Karakter berkata: 'Tiap kota punya terminal kayak gini...'"></textarea>
+                    </fieldset>
+                </div>
+
+                <div class="form-column">
+                    <fieldset>
+                        <legend><i class="fa-solid fa-map-location-dot"></i> Latar & Suasana</legend>
+                        <label for="judul_scane">Judul Adegan</label>
+                        <input type="text" id="judul_scane" placeholder="Contoh: Terminal bus malam hari">
+
+                        <label for="latar_tempat_waktu">Latar Tempat & Waktu</trlabel>
+                        <textarea id="latar_tempat_waktu" rows="4" placeholder="Contoh: latar tempat: di terminal bus antar kota malam hari..."></textarea>
+                        
+                        <label for="suasana">Suasana Keseluruhan</label>
+                        <input type="text" id="suasana" placeholder="Contoh: Suasana sibuk, ramai, dengan kesan perjalanan malam...">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><i class="fa-solid fa-video"></i> Sinematografi</legend>
+                        <label for="detail_visual">Detail Visual & Gaya Video</label>
+                        <textarea id="detail_visual" rows="4" placeholder="Contoh: Pencahayaan: natural dari lampu jalan... Gaya Video/Art Style: cinematic realistis..."></textarea>
+                        
+                        <label for="gerakan_kamera">Gerakan Kamera</label>
+                        <select id="gerakan_kamera">
+                            </select>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend><i class="fa-solid fa-ban"></i> Negative Prompt</legend>
+                        <label for="negative_prompt">Hal yang harus dihindari</label>
+                        <input type="text" id="negative_prompt" value="text, subtitles, writing, fonts, logos, distortion, artifacts, anomalies, duplicate faces, deformed limbs, abnormal hands, extra people, distracting objects, low quality, blurry, glitch, robotic voice, broken audio">
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="generateBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Buat Prompt</button>
+                <button type="reset" id="resetBtn"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
+            </div>
+        </form>
+
+        <div class="output-grid">
+            <div class="output-column">
+                <h2>Prompt Bahasa Indonesia (Dapat Diedit)</h2>
+                <div class="textarea-wrapper">
+                    <textarea id="output_indonesia" rows="15"></textarea>
+                    <button type="button" class="copy-btn" data-target="output_indonesia" title="Salin Prompt"><i class="fa-regular fa-copy"></i></button>
+                </div>
+            </div>
+            <div class="output-column">
+                <h2>Final Prompt (untuk AI)</h2>
+                 <div class="textarea-wrapper">
+                    <textarea id="output_inggris" rows="15" readonly></textarea>
+                    <button type="button" class="copy-btn" data-target="output_inggris" title="Salin Prompt"><i class="fa-regular fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
